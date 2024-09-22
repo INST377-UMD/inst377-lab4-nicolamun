@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <style>
+        /*This is a comment
+        To select an id, use a #
+        To select a class, use a .*/
+        /*
+        rosewood - #AA4761
+        rose taupe - #C58997
+        lavender purple - #9B86A7
+        old lavender - #746885
+        taupe gray - #978E87
+        charcoal - #372D35
+        */
+        * {
+            box-sizing: border-box;
+        }
+        #titlesection {
+            margin: 20px;
+            padding: 4px;
+        }
+        #wall {
+            background-color: black;
+        }
+        p, h3, ul{
+            color: #978E87;
+        }
+        h1 {
+            text-align: center;
+            background-color: #C58997;
+            border: 6px solid #AA4761;
+            padding: 20px;
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+        .innerdivs {
+            background-color: #9B86A7;
+            border-style: ridge;
+            border: 6px bold #746885;
+            padding: 20px;
+            text-align: center;
+        }
+        #outerdiv {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-gap: 50px;
+        padding: 20px;
+        }
+        label, input, button {
+            font-size: large;
+        }
+        </style>
+    </head>
+    <body id="wall">
+        <div id="titlesection">
+            <header id="title">
+                <h1 id="h1">Happy Eclipse Season</h1>
+            </header>
+        </div>
+
+        <h3>Visit this page daily for guidance on the current eclipses. As the Aries-Libra cycle comes to an end, and the Virgo-Pisces begins, consider the following: </h3>
+        <ul>
+            <li>for Aries-Libra - ending cycles regarding: relationship patterns, balance between independence and dependence</li>
+            <li>for Virgo-Pisces - beginning cycles regarding: balance between spiritual and day-to-day routines, groundedness (or lack therof)</li>
+        </ul>
+        <!--Name, Today's Colors, Current Astrological Transits, Daily Eclipse Guidance-->
+        <div id="outerdiv">
+            <!--SECTION ONE-->
+            <div id="one" class="innerdivs">
+                <form name="signalert">
+                    <label for="zodiac"><b>Zodiac Sign: </b></label>
+                    <input type="text" id="zodiac" placeholder="ex: Leo" required>
+                    <button onclick="alertZodiac()">submit</button>
+                </form>
+            </div>
+            
+            <!--SECTION TWO-->
+            <div id="two" class="innerdivs">
+                <!--when "Light/Dark" clicked, change background color-->
+                <button onclick="changeColor();">light/dark</button>
+            </div>
+
+        <!--SECTION THREE-->
+        <div id="three" class="innerdivs">
+            <form>
+                <label><b>Password: </b></label>
+                <input type="text" placeholder="sparklybrownbear" id="password">
+                <input type="submit" onclick="validateText()">
+            </form>
+        </div>
+
+        <!--SECTION FOUR-->
+        <div id="four" class="innerdivs">
+            <button onclick= "changeText()">sparkle!</button>        </div>
+        </div>
+        <script type="text/javascript">
+            function alertZodiac() {
+                let zodV = document.getElementById('zodiac').value;
+                alert("Wow! You are a(n) " + zodV);
+            }
+
+            function changeColor() {
+                if(document.getElementById('wall').style.backgroundColor == 'white') {
+                    const t = document.getElementById('wall').style.backgroundColor = 'black'
+                } 
+                else {
+                    const t = document.getElementById('wall').style.backgroundColor = 'white';
+                }
+            }
+
+            function validateText() {
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validation.test(document.getElementById('password').value)) {
+                    alert("bad password. try again!");
+                }
+                else {
+                    alert("good password");
+                }
+            }
+
+            function changeText() {
+                document.getElementById("h1").innerHTML = "⟡₊ ⊹ It's Spooky Season ⟡₊ ⊹";
+            }
+        </script>
+    </body>
+</html>
